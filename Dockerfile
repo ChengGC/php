@@ -24,6 +24,7 @@ RUN apk update \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install pdo_mysql \
     && docker-php-ext-install bcmath \
+     && docker-php-ext-install mysqli \
     && docker-php-source delete \
     && cd /usr/local/etc/php \
     && touch php.ini \
