@@ -19,7 +19,7 @@ RUN apk update \
     ) \
     && rm -r redis \
     && docker-php-ext-enable redis \
-    && apk add --no-cache freetype-dev libjpeg-turbo-dev libpng-dev libzip-dev mysql-client \
+    && apk add --no-cache freetype-dev libjpeg-turbo-dev libpng-dev libzip-dev zlib1g-dev mysql-client \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install pdo_mysql \
