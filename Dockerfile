@@ -19,12 +19,13 @@ RUN apk update \
     ) \
     && rm -r redis \
     && docker-php-ext-enable redis \
-    && apk add --no-cache freetype-dev libjpeg-turbo-dev libpng-dev mysql-client \
+    && apk add --no-cache freetype-dev libjpeg-turbo-dev libpng-dev libzip-dev mysql-client \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install pdo_mysql \
     && docker-php-ext-install bcmath \
     && docker-php-ext-install mysqli \
+    && docker-php-ext-install zip \
     && docker-php-source delete \
     && cd /usr/local/etc/php \
     && touch php.ini \
